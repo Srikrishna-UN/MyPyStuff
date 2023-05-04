@@ -11,4 +11,4 @@ for i in range(columns):
     eqn.append(eqn_string)
     equations.append(eqn)
 
-print(equations)
+# print(equations)
