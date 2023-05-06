@@ -1,3 +1,5 @@
+import string
+
 from passlen import len_iters_random
 import random as rn
 
@@ -18,24 +20,21 @@ def password_gen():
 
     password_list = []
 
-    numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    lower_alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-                       't', 'u', 'v', 'w', 'x', 'y', 'z']
-    upper_alphabets = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
-                       'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    special_characters = ["!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<",
-                          "=", ">", "?", "@", "[", "\\", "]", "^", "`", "{", "|", "}", "~"]
+    numbers = list(string.digits)
+    lower_alphabets = list(string.ascii_lowercase)
+    upper_alphabets = list(string.ascii_uppercase)
+    special_characters = list(string.punctuation)
 
-    for a in (lower_alphabets, upper_alphabets, special_characters):
-        for b in (size_lower, size_upper, size_special):
-            for c in range(1, (b + 1)):
-                password_list.append(rn.choice(a))
-            break
-
-    for i in range(1, (size_num + 1)):
-        password_list.append(str(rn.choice(numbers)))
-    rn.shuffle(password_list)
-    # global password
+    # for a in (lower_alphabets, upper_alphabets, special_characters):
+    #     for b in (size_lower, size_upper, size_special):
+    #         for c in range(1, (b + 1)):
+    #             password_list.append(rn.choice(a))
+    #         break
+    #
+    # for i in range(1, (size_num + 1)):
+    #     password_list.append(str(rn.choice(numbers)))
+    # rn.shuffle(password_list)
+    # # global password
     password = ''.join(password_list)
 
     print(password)
