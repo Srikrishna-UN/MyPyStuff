@@ -1,0 +1,1 @@
+degree=int(input("Enter degree of equation:"))
