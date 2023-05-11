@@ -51,5 +51,5 @@ a.input_equations(rows, columns)
 b.input_equations(rows, columns)
 c.input_equations(rows, columns)
 
-sum_matrix = sum_matrices(a, b, c, func_rows=rows, func_columns=columns)
+sum_matrix = sum_matrices(a, b, c,  func_rows=rows, func_columns=columns)
 print(sum_matrix)
