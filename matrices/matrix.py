@@ -1,5 +1,6 @@
 rows = int(input("Enter number of equation / number of rows:"))
 columns = int(input("Enter number of variable / number of columns:"))
+matrices = ['a', 'b', 'c', 'd']
 
 
 class Matrix:
@@ -8,14 +9,14 @@ class Matrix:
         self.class_rows = class_rows
         self.class_columns = class_columns
 
-    def input_equations(self, class_rows, class_columns):
+    def input_equations(self):
 
-        for i in range(class_rows):
+        for i in range(self.class_rows):
             eqn_string = input(f"Enter the equation {i + 1}:")
             self.equations.append(eqn_string.split(" "))
 
-        for x in range(class_rows):
-            if len(self.equations) != self.class_rows and len(self.equations[x])!=self.class_columns:
+        for x in range(self.class_rows):
+            if len(self.equations) != self.class_rows and len(self.equations[x]) != self.class_columns:
                 print("Error brooo! Check variables entered")
 
     def store_equations(self, *args):
@@ -23,7 +24,7 @@ class Matrix:
             self.equations.append(i)
         return self.equations
 
-    def access_elements(self, i, j):
+    def access_element(self, i, j):
         return self.equations[i][j]
 
     def print_equations(self):
@@ -31,6 +32,17 @@ class Matrix:
             print(f"{_}")
 
     def get_matrix(self):
+        return self.equations
+
+    def get_rank(self):
+        return [self.class_rows, self.class_columns]
+
+    def scalar_multiplication(self, k):
+        for m in range(self.class_rows):
+            for n in range(self.class_columns):
+                self.equations[m][n] = int(self.equations[m][n])
+                self.equations[m][n] *= k
+                self.equations[m][n] = str(self.equations[m][n])
         return self.equations
 
 
@@ -45,11 +57,6 @@ def sum_matrices(*args, func_rows, func_columns):
 
 
 a = Matrix(rows,columns)
-b = Matrix(rows,columns)
-c = Matrix(rows,columns)
-a.input_equations(rows, columns)
-b.input_equations(rows, columns)
-c.input_equations(rows, columns)
-
-sum_matrix = sum_matrices(a, b, c,  func_rows=rows, func_columns=columns)
-print(sum_matrix)
+a.input_equations()
+a.print_equations()
+print(a.scalar_multiplication(10))
