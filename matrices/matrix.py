@@ -45,6 +45,12 @@ class Matrix:
                 self.equations[m][n] = str(self.equations[m][n])
         return self.equations
 
+    def transpose(self):
+        for i in range(self.class_rows):
+            for j in range(self.class_columns):
+                self.equations[i][j] = self.equations[j][i]
+        return self.equations
+
 
 def sum_matrices(*args, func_rows, func_columns):
     func_sum_matrix = [[0 for j in range(func_columns)] for i in range(func_rows)]
@@ -58,5 +64,5 @@ def sum_matrices(*args, func_rows, func_columns):
 
 a = Matrix(rows,columns)
 a.input_equations()
-a.print_equations()
-print(a.scalar_multiplication(10))
+print(a.transpose())
+
