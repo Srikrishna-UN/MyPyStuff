@@ -7,3 +7,4 @@ In Round 4, every fourth door (4, 8, 12..), if Door is open,, he closes it. If D
 He does this for 100 Rounds. At the end, who are the lucky prisoners ?
 b) Prepare 2 letters. Letter1 to PM giving list of lucky prisoners and release date as today. Letter2 to Jailer giving list of unlucky prisoners who will be released after 4 weeks.
 """
+
