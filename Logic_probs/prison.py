@@ -8,38 +8,19 @@ He does this for 100 Rounds. At the end, who are the lucky prisoners ?
 b) Prepare 2 letters. Letter1 to PM giving list of lucky prisoners and release date as today. Letter2 to Jailer giving list of unlucky prisoners who will be released after 4 weeks.
 """
 # Initialization
-prison_doors = []
+prison_doors = [False]*100
+
+for round_num in range(1, 101):
+    for i in range(round_num, 100, round_num):
+        prison_doors[i - 1] = not prison_doors[i - 1]
+
 open_doors = []
-for _ in range(100):
-    prison_doors.append(0)
+closed_doors = []
 
-
-def prison_iters(num):
-    if num == 0:
-        for i in range(num, 100):
-            if prison_doors[i] == 1:
-                prison_doors[i] = 0
-            elif prison_doors[i] == 0:
-                prison_doors[i] = 1
+for i in range(1,101):
+    if prison_doors[i-1]:
+        open_doors.append(i)
     else:
-        for i in range(num, 100, num):
-            if prison_doors[i] == 1:
-                prison_doors[i] = 0
-            elif prison_doors[i] == 0:
-                prison_doors[i] = 1
-    # for _ in prison_doors:
-    #     if _ == 1:
-    #         open_doors.append(prison_doors.index(_))
+        closed_doors.append(i)
 
-
-for z in range(100):
-    prison_iters(z)
-
-print(prison_doors)
-
-for _ in prison_doors:
-    if _ == 1:
-        open_doors.append(prison_doors.index(_))
-
-# print(open_doors)
-
+print(open_doors)
