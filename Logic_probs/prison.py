@@ -17,7 +17,7 @@ for round_num in range(1, 101):
 open_doors = []
 closed_doors = []
 
-for i in range(1,101):
+for i in range(1, 101):
     if prison_doors[i-1]:
         open_doors.append(i)
     else:
